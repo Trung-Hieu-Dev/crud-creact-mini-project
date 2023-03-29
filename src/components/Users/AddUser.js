@@ -5,7 +5,7 @@ import Card from '../UI/Card';
 
 import classes from './AddUser.module.css';
 
-function AddUser() {
+const AddUser = (props) => {
     const [enteredUsername, setEnteredUsername] = useState('');
     const [enteredUserAge, setEnteredUserAge] = useState('');
 
@@ -29,7 +29,8 @@ function AddUser() {
             return;
         }
 
-        console.log(enteredUsername, enteredUserAge);
+        props.onSaveUser(enteredUsername, enteredUserAge);
+
         setEnteredUsername('');
         setEnteredUserAge('');
     };
@@ -55,6 +56,6 @@ function AddUser() {
             </form>
         </Card>
     );
-}
+};
 
 export default AddUser;
